@@ -50,7 +50,7 @@ app.get("/weather", (req, res, next) => {
       error: "Location is required!",
     });
   }
-
+  // Gets the latitude and longitude for the entered address
   geocode(location, (error, { latitude, longitude, label } = {}) => {
     if (error) {
       return res.send({
@@ -58,23 +58,20 @@ app.get("/weather", (req, res, next) => {
         error,
       });
     }
-
-    forecast(
-      latitude,
-      longitude,
-      (error, { description, temperature, feelslike } = {}) => {
-        if (error) {
-          return res.send({
-            title,
-            error,
-          });
-        }
-        res.send({
+    // Gets the weather using the latitude and lonitude
+    forecast(latitude, longitude, (error, response) => {
+      if (error) {
+        return res.send({
           title,
-          forecast: `In ${label} it is ${description} and ${temperature} degrees outside, but it feels like ${feelslike}.`,
+          error,
         });
       }
-    );
+      res.send({
+        title,
+        label,
+        ...response.body,
+      });
+    });
   });
 });
 

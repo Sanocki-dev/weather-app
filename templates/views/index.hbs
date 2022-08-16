@@ -4,28 +4,79 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/assets/weather_icon.svg" type="image/x-icon">
+    <link rel="icon" href="/assets/weather_icon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <title>{{title}}</title>
   </head>
 
   <body>
     <div class="main-content">
       {{>header}}
-      
-      <p>Use this site to get your weather!</p>
-      
-      <form method="get">
-        <input type="text" placeholder="Location" >
-        <button type="submit">Submit</button>
-      </form>
 
-      <p id="message-1"></p>
-      <p id="message-2"></p>
+      <div class="weather-form">
+        <div class="top-container">
 
+          <form method="get">
+            <div class="location-input">
+              <button type="submit">
+                <span class="material-symbols-outlined">
+                  navigation
+                </span>
+              </button>
+              <input
+                type="text"
+                autocomplete="false"
+                spellcheck="false"
+                placeholder="Location"
+              />
+            </div>
+          </form>
 
-      {{error}}
-      {{forecast}}
+          <h1 id="location">Enter a location</h1>
+
+          <div class="weather-icon_container">
+            <img
+              id="weather-icon"
+              src="/assets/default.svg"
+              alt="weather-icon"
+            />
+          </div>
+          <p id="message-1"></p>
+          <p id="message-2"></p>
+          <p id="feelslike"></p>
+        </div>
+
+        <div class="breakdown">
+          <div>
+            <p class="breakdown-label">Wind</p>
+            <p class="breakdown-value" id="wind">km/h</p>
+          </div>
+          <div>
+            <p class="breakdown-label">Pressure</p>
+            <p class="breakdown-value" id="pressure">mb</p>
+          </div>
+          <div>
+            <p class="breakdown-label">Visibility</p>
+            <p class="breakdown-value" id="visibility">%</p>
+          </div>
+          <div>
+            <p class="breakdown-label">Humidity</p>
+            <p class="breakdown-value" id="humidity">%</p>
+          </div>
+        </div>
+        {{error}}
+        {{forecast}}
+      </div>
     </div>
 
     {{>footer}}
