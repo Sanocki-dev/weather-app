@@ -57,23 +57,13 @@
         </div>
 
         <div class="breakdown">
-          <div>
-            <p class="breakdown-label">Wind</p>
-            <p class="breakdown-value" id="wind">km/h</p>
-          </div>
-          <div>
-            <p class="breakdown-label">Pressure</p>
-            <p class="breakdown-value" id="pressure">mb</p>
-          </div>
-          <div>
-            <p class="breakdown-label">Visibility</p>
-            <p class="breakdown-value" id="visibility">%</p>
-          </div>
-          <div>
-            <p class="breakdown-label">Humidity</p>
-            <p class="breakdown-value" id="humidity">%</p>
-          </div>
+          {{>breakdown label='wind' icon="air" unit="km/h"}}
+          {{>breakdown label='pressure' icon="compress" unit="mb"}}
+          {{>breakdown label='visibility' icon="visibility" unit="%"}}
+          {{>breakdown label='humidity' icon="humidity_high" unit="%"}}
         </div>
+
+        {{>breakdown}}
         {{error}}
         {{forecast}}
       </div>

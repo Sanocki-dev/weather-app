@@ -13,18 +13,25 @@ const pressure = document.querySelector("#pressure");
 const visibility = document.querySelector("#visibility");
 const feelslike = document.querySelector("#feelslike");
 
-
 weatherForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  location.textContent = "Loading...";
+  location_text.textContent = "Loading...";
   temperature.textContent = "";
 
   fetch("/weather?location=" + input.value).then((res) => {
     res.json().then((data) => {
       console.log(data);
       if (data.error) {
-        temperature.textContent = data.error;
-        location.textContent = "";
+        location_text.textContent = data.error;
+        temperature.textContent = "";
+        description.textContent = "";
+        temperature.textContent = ``;
+        feelslike.textContent = ``;
+        wind.textContent = `km/h`;
+        pressure.textContent = `mb`;
+        visibility.textContent = `%`;
+        humidity.textContent = `%`;
+        icon.src = "/assets/default.svg";
       } else {
         switch (data.weather_descriptions[0]) {
           case "Sunny":
@@ -37,11 +44,7 @@ weatherForm.addEventListener("submit", (e) => {
             icon.src = "/assets/clouds-line.svg";
             break;
           case "Rain":
-            icon.src = "/assets/rain-line.svg";
-            break;
           case "Light Rain":
-            icon.src = "/assets/rain-line.svg";
-            break;
           case "Haze, Rain Shower":
             icon.src = "/assets/rain-line.svg";
             break;
@@ -59,18 +62,19 @@ weatherForm.addEventListener("submit", (e) => {
             }
             break;
           default:
+            icon.src = "/assets/default.svg";
             break;
         }
         location_text.textContent = `${data.label}`;
-        description.textContent = data.weather_descriptions[0]
-        temperature.textContent = `${data.temperature}°`
+        description.textContent = data.weather_descriptions[0];
+        temperature.textContent = `${data.temperature}°`;
 
-        feelslike.textContent = `Feels Like ${data.feelslike}°`
+        feelslike.textContent = `Feels Like ${data.feelslike}°`;
 
-        wind.textContent = `${data.wind_speed} km/h ${data.wind_dir}`
-        pressure.textContent = `${data.pressure} mb`
-        visibility.textContent = `${data.visibility} %`
-        humidity.textContent = `${data.humidity} %`
+        wind.textContent = `${data.wind_speed} km/h ${data.wind_dir}`;
+        pressure.textContent = `${data.pressure} mb`;
+        visibility.textContent = `${data.visibility} %`;
+        humidity.textContent = `${data.humidity} %`;
       }
     });
   });

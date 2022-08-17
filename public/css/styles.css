@@ -48,7 +48,8 @@ nav a:hover {
 }
 
 .logo:hover {
-  filter: invert(32%) sepia(264) saturate(40) hue-rotate(156deg) brightness(94%) contrast(90%)
+  filter: invert(32%) sepia(264) saturate(40) hue-rotate(156deg) brightness(94%)
+    contrast(90%);
 }
 
 .profile-photo {
@@ -62,7 +63,8 @@ nav a:hover {
 }
 
 #weather-icon:hover {
-  filter: invert(32%) sepia(264) saturate(40) hue-rotate(156deg) brightness(94%) contrast(90%)
+  filter: invert(32%) sepia(264) saturate(40) hue-rotate(156deg) brightness(94%)
+    contrast(90%);
 }
 
 .weather-icon_container {
@@ -139,10 +141,24 @@ nav a:hover {
   font-size: 16pt;
 }
 
+.label {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: baseline;
+}
+
+.label span:last-child {
+  justify-self: flex-end;
+  /* font-size: 25pt; */
+  color:#fff
+}
+
 .breakdown-label {
-  color: #ffffffa1;
-  text-transform: uppercase;
+  color: #ffffff;
   letter-spacing: 1;
+  text-transform: capitalize;
 }
 
 .breakdown-value {
@@ -155,9 +171,10 @@ nav a:hover {
 
 #location {
   letter-spacing: 1px;
-  font-size: 28pt;
+  font-size: 25pt;
+  max-width: 400px;
   margin: 0;
-  color:#fff
+  color: #fff;
 }
 
 .top-container {
@@ -194,7 +211,6 @@ button:hover {
   color: #1cb5e4;
 }
 
-
 @media only screen and (max-width: 900px) {
   .weather-form {
     flex-direction: column;
@@ -207,6 +223,6 @@ button:hover {
 
   .breakdown {
     flex-direction: row;
-    justify-content: center
+    justify-content: center;
   }
 }
