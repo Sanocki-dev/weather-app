@@ -1,9 +1,10 @@
 body {
   color: rgb(206, 206, 206);
   background-color: #141526;
-  background-image: url("/assets/background.png");
-  background-position: center;
+  background-image: url("/assets/background.jpg");
+  background-position: bottom;
   background-attachment: fixed;
+  background-size: cover;
   font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
@@ -19,11 +20,11 @@ header {
   justify-content: space-evenly;
   padding: 16px 16px;
   padding-bottom: 25px;
-  background-color: #141526;
+  background-color: transparent;
 }
 
 footer {
-  background-color: #0c0d18;
+  background-color: #141526b0;
   padding: 16px 0;
   margin-top: 16px;
   display: flex;
@@ -45,11 +46,11 @@ nav a:hover {
 
 .logo {
   cursor: pointer;
+  height:50px;
 }
 
 .logo:hover {
-  filter: invert(32%) sepia(264) saturate(40) hue-rotate(156deg) brightness(94%)
-    contrast(90%);
+  filter:brightness(100);
 }
 
 .profile-photo {
@@ -63,8 +64,8 @@ nav a:hover {
 }
 
 #weather-icon:hover {
-  filter: invert(32%) sepia(264) saturate(40) hue-rotate(156deg) brightness(94%)
-    contrast(90%);
+  /* filter: invert(32%) sepia(264) saturate(40) hue-rotate(156deg) brightness(94%)
+    contrast(90%); */
 }
 
 .weather-icon_container {
@@ -102,7 +103,7 @@ nav a:hover {
   align-items: center;
   flex-direction: row-reverse;
   background-color: #14152690;
-  border: 1px solid #0c0d18;
+  border: 1px solid #c2c2c2;
   border-radius: 5px;
   padding: 0 10px;
 }
@@ -205,6 +206,7 @@ button {
   background: transparent;
   border: none;
   color: white;
+  transform: rotateZ(90deg);
 }
 
 button:hover {

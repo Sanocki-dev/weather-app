@@ -25,7 +25,7 @@ hbs.registerPartials(partialsPath);
 // Setup static directory to serve
 app.use(express.static(publicPath));
 
-app.get("", (req, res) => {
+app.get("/", (req, res) => {
   // This renders the hbs dynamic page which is in the views
   res.render("index", { title: "Weather App" });
 });
